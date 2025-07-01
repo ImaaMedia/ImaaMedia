@@ -6,6 +6,7 @@ import { HiMenu, HiX, HiHome, HiOutlineLightBulb, HiOutlineCog, HiOutlineMail } 
 
 import logo from "/images/logo.jpg"
 
+
 const navItems = [
   { name: "Home", path: "/", icon: <HiHome className="inline-block mr-1 mb-0.5 text-lg" /> },
   { name: "Services", path: "/services", icon: <HiOutlineCog className="inline-block mr-1 mb-0.5 text-lg" /> },

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import { HiArrowRight, HiChevronDown, HiCheck, HiStar } from "react-icons/hi"
 import { RiCustomerService2Line, RiComputerLine, RiAdvertisementLine, RiLayoutLine } from "react-icons/ri"
+import { Link } from "react-router-dom"
 
 const features = [
   {
@@ -124,13 +125,13 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-500">
-            <a
-              href="/contact-us"
+            <Link
+              to="/contact-us"
               className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-full shadow-lg hover:bg-white/20 transition-all duration-300 border border-white/20"
             >
               Let's Work Together
               <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
 
             <a
               href="#services"
@@ -330,13 +331,13 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <a
-              href="/services"
+            <Link
+              to="/services"
               className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-full shadow-lg hover:bg-amber-500/10 transition-all duration-300 border border-white/20 group"
             >
               View All Services
               <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

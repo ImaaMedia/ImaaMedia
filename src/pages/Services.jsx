@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { HiArrowRight, HiCheck, HiPlus } from "react-icons/hi"
 import { RiFileTextLine, RiMailLine } from "react-icons/ri"
 import { RiCustomerService2Line, RiComputerLine, RiAdvertisementLine, RiLayoutLine } from "react-icons/ri"
+import { Link } from "react-router-dom"
 
 const services = [
   {
@@ -231,13 +232,13 @@ export default function Services() {
             Let's discuss how our services can help you achieve your business goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact-us"
+            <Link
+              to="/contact-us"
               className="inline-flex items-center justify-center bg-black text-white font-bold px-8 py-4 rounded-full shadow-lg hover:bg-gray-900 transition-all duration-300 text-lg group"
             >
               Get a Free Consultation
               <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
