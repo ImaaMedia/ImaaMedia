@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { HiMenu, HiX, HiHome, HiOutlineLightBulb, HiOutlineCog, HiOutlineMail } from "react-icons/hi"
 
+import logo from "/images/logo.jpg"
+
 const navItems = [
   { name: "Home", path: "/", icon: <HiHome className="inline-block mr-1 mb-0.5 text-lg" /> },
   { name: "Services", path: "/services", icon: <HiOutlineCog className="inline-block mr-1 mb-0.5 text-lg" /> },
@@ -42,7 +44,7 @@ export default function Navbar() {
         <NavLink to="/" tabIndex={0} aria-label="Go to Home">
           <div className="flex items-center select-none flex-shrink-0">
             <img
-              src="/images/logo.jpg"
+              src={logo}
               alt="IMAA MEDIA Logo"
               className="h-60 w-auto object-contain"
               style={{ maxHeight: 60 }}
