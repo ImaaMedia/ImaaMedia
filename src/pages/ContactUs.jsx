@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import emailjs from '@emailjs/browser'
 import { HiMail, HiPhone, HiLocationMarker, HiArrowRight, HiCheck, HiExclamation } from "react-icons/hi"
 import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
 
@@ -28,6 +29,7 @@ export default function ContactUs() {
     subject: "",
     message: "",
   })
+  const formRef = useRef()
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     success: false,
@@ -54,19 +56,30 @@ export default function ContactUs() {
     e.preventDefault()
 
     if (validateForm()) {
-      // Simulate form submission
-      setFormStatus({
-        submitted: true,
-        success: true,
-        message: "Your message has been sent successfully! We'll get back to you soon.",
-      })
-
-      // Reset form after successful submission
-      setFormState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
+      emailjs.sendForm(
+        'service_p6xvgf9', // <-- Replace with your EmailJS Service ID
+        'template_ey7re4f', // <-- Replace with your EmailJS Template ID
+        formRef.current,
+        'Ci95HWlD3gceCnuzu' // <-- Replace with your EmailJS Public Key
+      )
+      .then(() => {
+        setFormStatus({
+          submitted: true,
+          success: true,
+          message: "Your message has been sent successfully! We'll get back to you soon.",
+        })
+        setFormState({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+      }, () => {
+        setFormStatus({
+          submitted: true,
+          success: false,
+          message: "Failed to send message. Please try again later.",
+        })
       })
     } else {
       setFormStatus({
@@ -128,7 +141,7 @@ export default function ContactUs() {
                     </p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="p-6">
+                  <form ref={formRef} onSubmit={handleSubmit} className="p-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                       <div className="relative">
                         <input

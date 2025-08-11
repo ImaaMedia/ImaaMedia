@@ -77,12 +77,10 @@ const services = [
 
 
 export default function Services() {
-  const [isVisible, setIsVisible] = useState(false)
   const [activeService, setActiveService] = useState(null)
   const [openFAQ, setOpenFAQ] = useState(null)
 
   useEffect(() => {
-    setIsVisible(true)
     window.scrollTo(0, 0)
   }, [])
 
