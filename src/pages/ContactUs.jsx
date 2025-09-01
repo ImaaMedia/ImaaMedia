@@ -1,8 +1,7 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import emailjs from '@emailjs/browser'
-import { HiMail, HiPhone, HiLocationMarker, HiArrowRight, HiCheck, HiExclamation } from "react-icons/hi"
+import { useEffect } from "react"
+import { HiMail, HiExclamation } from "react-icons/hi"
 import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"
 
 
@@ -23,82 +22,9 @@ const socialLinks = [
 ]
 
 export default function ContactUs() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
-  const formRef = useRef()
-  const [formStatus, setFormStatus] = useState({
-    submitted: false,
-    success: false,
-    message: "",
-  })
-  const [errors, setErrors] = useState({})
-
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-
-  const validateForm = () => {
-    const newErrors = {}
-    if (!formState.name.trim()) newErrors.name = "Name is required"
-    if (!formState.email.trim()) newErrors.email = "Email is required"
-    else if (!/^\S+@\S+\.\S+$/.test(formState.email)) newErrors.email = "Email is invalid"
-    if (!formState.message.trim()) newErrors.message = "Message is required"
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    if (validateForm()) {
-      emailjs.sendForm(
-        'service_p6xvgf9', // <-- Replace with your EmailJS Service ID
-        'template_ey7re4f', // <-- Replace with your EmailJS Template ID
-        formRef.current,
-        'Ci95HWlD3gceCnuzu' // <-- Replace with your EmailJS Public Key
-      )
-      .then(() => {
-        setFormStatus({
-          submitted: true,
-          success: true,
-          message: "Your message has been sent successfully! We'll get back to you soon.",
-        })
-        setFormState({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        })
-      }, () => {
-        setFormStatus({
-          submitted: true,
-          success: false,
-          message: "Failed to send message. Please try again later.",
-        })
-      })
-    } else {
-      setFormStatus({
-        submitted: true,
-        success: false,
-        message: "Please fix the errors in the form.",
-      })
-    }
-  }
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormState((prev) => ({ ...prev, [name]: value }))
-
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }))
-    }
-  }
 
   return (
     <div className="min-h-screen pt-20 bg-gradient-to-b from-zinc-100 to-white">
@@ -129,9 +55,14 @@ export default function ContactUs() {
       {/* Contact Form & Info Section */}
       <section className="w-full py-20 px-4 relative">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-            {/* Contact Form - 3 columns */}
-            <div className="lg:col-span-3 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="grid grid-cols-1 gap-10">
+            {/* Contact Form - now hidden */}
+            <div className="hidden">
+
+
+
+
+              {/*
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <div className="p-2">
                   <div className="bg-gradient-to-r from-gray-900 to-black rounded-xl p-12 text-white mb-6">
@@ -270,11 +201,17 @@ export default function ContactUs() {
                   </form>
                 </div>
               </div>
+              */}
             </div>
 
-            {/* Contact Info - 2 columns */}
-            <div className="lg:col-span-2 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full">
+
+
+
+
+
+            {/* Contact Info - Full width */}
+            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full max-w-4xl mx-auto">
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=1200&q=80"
@@ -322,23 +259,6 @@ export default function ContactUs() {
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-3 border-t border-gray-100">
-                    <h3 className="text-lg font-semibold mb-4">Business Hours</h3>
-                    <div className="space-y-2 text-gray-600">
-                      <div className="flex justify-between">
-                        <span>Monday - Friday:</span>
-                        <span className="font-medium">9:00 AM - 6:00 PM</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Saturday:</span>
-                        <span className="font-medium">10:00 AM - 4:00 PM</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Sunday:</span>
-                        <span className="font-medium">Closed</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
