@@ -27,9 +27,9 @@ export default function ContactUs() {
   }, [])
 
   return (
-    <div className="min-h-screen pt-20 bg-gradient-to-b from-zinc-100 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-zinc-100 to-white">
       {/* Hero Section */}
-      <section className="relative w-full py-20 px-4 overflow-hidden bg-gradient-to-r from-gray-900 to-black animate-fade-in">
+      <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-r from-gray-900 to-black animate-fade-in">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:30px_30px]" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#fee302]/50 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#fee302]/50 to-transparent" />
@@ -37,7 +37,7 @@ export default function ContactUs() {
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#fee302]/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl" />
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center animate-fade-in">
+        <div className="relative z-10 max-w-4xl mx-auto text-center px-4 animate-fade-in">
           <span className="px-6 py-2 bg-white/10 backdrop-blur-md rounded-full text-[#fee302] font-medium mb-6 inline-block border border-white/20 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Get in Touch
           </span>
@@ -52,14 +52,11 @@ export default function ContactUs() {
         </div>
       </section>
 
-      {/* Contact Form & Info Section */}
+      {/* Contact Info Section */}
       <section className="w-full py-20 px-4 relative">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 gap-10">
-            
-            {/* Contact Info - Full width */}
-            <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto">
+          <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full">
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=1200&q=80"
