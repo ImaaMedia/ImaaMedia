@@ -27,7 +27,7 @@ export default function ContactUs() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-100 to-white">
+    <div className="min-h-screen pt-24 md:pt-28 bg-gradient-to-b from-zinc-100 to-white">
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-r from-gray-900 to-black animate-fade-in">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:30px_30px]" />
