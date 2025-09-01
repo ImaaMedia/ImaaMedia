@@ -57,54 +57,53 @@ export default function ContactUs() {
         <div className="max-w-4xl mx-auto">
           <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden h-full">
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=1200&q=80"
-                    alt="Contact"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
-                    <h2 className="text-2xl font-bold text-white">Get in Touch</h2>
-                  </div>
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=1200&q=80"
+                  alt="Contact"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                  <h2 className="text-2xl font-bold text-white">Get in Touch</h2>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <div className="space-y-6">
+                  {contactInfo.map((info, index) => (
+                    <a
+                      key={info.label}
+                      href={info.href}
+                      className="flex items-center gap-4 text-gray-900 transition-all duration-300 p-3 rounded-lg group hover:translate-x-2"
+                      style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                    >
+                      <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
+                        {info.icon}
+                      </div>
+                      <div>
+                        <div className="text-sm text-gray-500">{info.label}</div>
+                        <div className="font-medium">{info.value}</div>
+                      </div>
+                    </a>
+                  ))}
                 </div>
 
-                <div className="p-6">
-                  <div className="space-y-6">
-                    {contactInfo.map((info, index) => (
+                <div className="mt-8 pt-3 border-t border-gray-100">
+                  <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
+                  <div className="flex space-x-4">
+                    {socialLinks.map((social) => (
                       <a
-                        key={info.label}
-                        href={info.href}
-                        className="flex items-center gap-4 text-gray-900 transition-all duration-300 p-3 rounded-lg group hover:translate-x-2"
-                        style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                        key={social.label}
+                        href={social.href}
+                        aria-label={social.label}
+                        className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#fee302] hover:text-black transition-all duration-300 hover:scale-110"
                       >
-                        <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center group-hover:bg-yellow-200 transition-colors">
-                          {info.icon}
-                        </div>
-                        <div>
-                          <div className="text-sm text-gray-500">{info.label}</div>
-                          <div className="font-medium">{info.value}</div>
-                        </div>
+                        {social.icon}
                       </a>
                     ))}
                   </div>
-
-                  <div className="mt-8 pt-3 border-t border-gray-100">
-                    <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-                    <div className="flex space-x-4">
-                      {socialLinks.map((social) => (
-                        <a
-                          key={social.label}
-                          href={social.href}
-                          aria-label={social.label}
-                          className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#fee302] hover:text-black transition-all duration-300 hover:scale-110"
-                        >
-                          {social.icon}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-
                 </div>
+
               </div>
             </div>
           </div>
